@@ -44,7 +44,12 @@ export function StockView({ symbol }: { symbol: string }) {
         </div>
       );
     }
-    return <ErrorNotice message={errorMessage(error)} onRetry={() => void mutate()} />;
+    return (
+      <div className="grid gap-4">
+        <h1 className="text-2xl font-bold">{symbol}</h1>
+        <ErrorNotice message={errorMessage(error)} onRetry={() => void mutate()} />
+      </div>
+    );
   }
 
   const quote = data?.quote;
