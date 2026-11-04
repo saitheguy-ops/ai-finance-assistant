@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "screenshots": "node scripts/screenshots.mjs"
   },
@@ -18,6 +18,7 @@
     "react-dom": "19.3.0",
     "recharts": "^3.10.1",
     "server-only": "^0.0.1",
+    "swr": "^2.5.1",
     "yahoo-finance2": "^4.0.5",
     "zod": "^4.6.7"
   },

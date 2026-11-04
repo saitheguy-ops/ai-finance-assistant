@@ -1,10 +1,13 @@
-export default function Home() {
+import { Watchlist } from "@/components/dashboard/Watchlist";
+
+export default function DashboardPage() {
   return (
-    <main className="mx-auto max-w-3xl p-6">
-      <h1 className="text-2xl font-semibold">AI Finance Assistant</h1>
-      <p className="mt-2 text-sm opacity-70">
-        Data layer is ready. Try <code>/api/quotes?symbols=AAPL,MSFT</code>.
-      </p>
-    </main>
+    <div className="grid gap-4">
+      <div>
+        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <p className="text-sm text-muted">Track tickers, then tap one for charts, stats and news.</p>
+      </div>
+      <Watchlist />
+    </div>
   );
 }
