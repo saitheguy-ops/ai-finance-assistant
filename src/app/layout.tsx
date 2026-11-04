@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { ChatPanel } from "@/components/chat/ChatPanel";
 import { DisclaimerBanner } from "@/components/Disclaimer";
 import { Header } from "@/components/Header";
 import { themeInitScript } from "@/lib/theme";
@@ -31,10 +32,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col font-sans">
         <Header />
         <DisclaimerBanner />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6">{children}</main>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 pt-6 pb-24">{children}</main>
         <footer className="border-t border-border py-6 text-center text-xs text-muted">
           Built as a student portfolio project. Not investment advice. Prices via Yahoo Finance (unofficial, may be delayed).
         </footer>
+        <ChatPanel />
       </body>
     </html>
   );
