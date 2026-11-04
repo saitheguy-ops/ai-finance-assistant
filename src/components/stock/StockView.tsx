@@ -3,6 +3,7 @@
 import Link from "next/link";
 import useSWR from "swr";
 
+import { TradePanel } from "@/components/portfolio/TradePanel";
 import { Card } from "@/components/ui/Card";
 import { PriceChange } from "@/components/ui/PriceChange";
 import { ErrorNotice, Skeleton } from "@/components/ui/States";
@@ -19,7 +20,7 @@ interface StockResponse {
   news: NewsItem[] | null;
 }
 
-export function StockView({ symbol, tradePanel }: { symbol: string; tradePanel?: React.ReactNode }) {
+export function StockView({ symbol }: { symbol: string }) {
   const { data, error, mutate } = useSWR(
     `/api/stock/${encodeURIComponent(symbol)}`,
     (url: string) => fetchJson<StockResponse>(url),
@@ -89,7 +90,7 @@ export function StockView({ symbol, tradePanel }: { symbol: string; tradePanel?:
           <PriceChart symbol={symbol} currency={quote?.currency} />
         </Card>
         <div className="grid content-start gap-4">
-          {tradePanel}
+          <TradePanel symbol={symbol} price={quote?.price ?? null} currency={quote?.currency} />
           <Card title="Key stats">{quote ? <KeyStats quote={quote} /> : <Skeleton className="h-40 w-full" />}</Card>
         </div>
       </div>

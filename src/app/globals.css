@@ -65,6 +65,9 @@
   --color-down-soft: var(--down-soft);
   --color-warn-soft: var(--warn-soft);
   --color-warn-text: var(--warn-text);
+  /* Buttons keep the same colours in both themes so white text stays readable. */
+  --color-buy: #15803d;
+  --color-sell: #c62828;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
