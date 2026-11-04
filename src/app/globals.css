@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: <html class="dark">. Set before first paint by the
+   inline script in layout.tsx, so there's no light/dark flash. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens. Components use these via Tailwind (bg-surface, text-muted…)
+   so light/dark values live in one place. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --border: #e2e5ea;
+  --text: #0f1419;
+  --text-muted: #5b6470;
+  --accent: #2a78d6;
+  --accent-contrast: #ffffff;
+  --up: #12813a;
+  --down: #c62f2f;
+  --up-soft: #e3f4e8;
+  --down-soft: #fbe6e6;
+  --warn-soft: #fff4d6;
+  --warn-text: #7a5300;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #0b0e13;
+  --surface: #12161d;
+  --surface-2: #1a1f28;
+  --border: #252b36;
+  --text: #e8ebf0;
+  --text-muted: #949eab;
+  --accent: #3987e5;
+  --accent-contrast: #ffffff;
+  --up: #3ecf6f;
+  --down: #f26b6b;
+  --up-soft: #0f2a1a;
+  --down-soft: #301516;
+  --warn-soft: #2e2511;
+  --warn-text: #f5c96a;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-up-soft: var(--up-soft);
+  --color-down-soft: var(--down-soft);
+  --color-warn-soft: var(--warn-soft);
+  --color-warn-text: var(--warn-text);
+  /* Buttons keep the same colours in both themes so white text stays readable. */
+  --color-buy: #15803d;
+  --color-sell: #c62828;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Tabular numbers keep price columns from jittering as digits change. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
